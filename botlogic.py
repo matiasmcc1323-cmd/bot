@@ -1,3 +1,4 @@
+#botlogic is now unused
 import random
 def gen_pass(pass_length):
     elements = "+-/*!&$#?=@<>AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890"
