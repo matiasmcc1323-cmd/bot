@@ -76,5 +76,51 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
+@bot.command()
+async def magicball(ctx, *text: str):
+    if not text:
+        await ctx.send("You need to provide text!")
+    else:
+        answer = random.choice(["Yes", "No", "Maybe"])
+        await ctx.send(answer)
+        
+@bot.command()
+async def rps(ctx, text):
+    if text in ["paper", "scissors", "rock"]:
+        choice = random.choice(["paper", "scissors", "rock"])
+        if text == "paper":
+            if choice == "paper":
+                await ctx.send(f"My choice was {choice}, it was a tie")
+            elif choice == "scissors":
+                await ctx.send(f"My choice was {choice}, I won")
+            elif choice == "rock":
+                await ctx.send(f"My choice was {choice}, you won")
+        elif text == "scissors":
+            if choice == "paper":
+                await ctx.send(f"My choice was {choice}, you won")
+            elif choice == "scissors":
+                await ctx.send(f"My choice was {choice}, it was a tie")
+            elif choice == "rock":
+                await ctx.send(f"My choice was {choice}, I won")
+        elif text == "rock":
+            if choice == "paper":
+                await ctx.send(f"My choice was {choice}, I won")
+            elif choice == "scissors":
+                await ctx.send(f"My choice was {choice}, you won")
+            elif choice == "rock":
+                await ctx.send(f"My choice was {choice}, it was a tie")
+    else:
+        await ctx.send("That's not a valid answer")
+
+@bot.command()
+async def reverse(ctx, *, text: str):
+    if not text:
+        await ctx.send("You need to provide text")
+    else:
+        result = ""
+        for i in text:
+            result = i + result
+
+        await ctx.send(result)
 
 bot.run('token')
